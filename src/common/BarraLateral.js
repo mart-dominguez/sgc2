@@ -1,18 +1,18 @@
 import React, { Component}  from 'react';
-
+import { Link } from 'react-router-dom'
 
 function BarraLateral(props) {
     return (
         <aside id="aside" className="aside aside-left" data-fuse-bar="aside" data-fuse-bar-media-step="md" data-fuse-bar-position="left">
-        <div className="aside-content-wrapper">
+            <div className="aside-content-wrapper">
 
             <div className="aside-content bg-primary-700 text-auto">
 
                 <div className="aside-toolbar">
-
                     <div className="logo">
-                        <span className="logo-icon">F</span>
-                        <span className="logo-text">FUSE</span>
+                        <div class="product-image mr-1">
+                            <img src="/images/go.png" height="60" width="120"/>
+                        </div>
                     </div>
 
                     <button id="toggle-fold-aside-button" type="button" className="btn btn-icon d-none d-lg-block" data-fuse-aside-toggle-fold>
@@ -33,22 +33,19 @@ function BarraLateral(props) {
 
                             <i className="icon s-4 icon-tile-four"></i>
 
-                            <span>Dashboards</span>
+                            <span>Clientes</span>
                         </a>
                         <ul id="collapse-dashboards" class='collapse show' role="tabpanel" aria-labelledby="heading-dashboards" data-children=".nav-item">
 
                             <li className="nav-item">
-                                <a className="nav-link ripple active" href="index.html" data-url="index.html">
-
-                                    <span>Project Dashboard</span>
-                                </a>
+                                <Link className="nav-link ripple " to='/'>Datos</Link>
                             </li>
 
                             <li className="nav-item">
-                                <a className="nav-link ripple " href="apps-dashboards-server.html" data-url="index.html">
-
-                                    <span>Server</span>
-                                </a>
+                                <Link className="nav-link ripple " to='/lista'>Listados</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link ripple " to='/lista'>Pedidos</Link>
                             </li>
 
                         </ul>
