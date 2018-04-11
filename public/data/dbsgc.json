@@ -1,0 +1,92 @@
+{
+  "clientes": [
+    {
+      "id": 1,
+      "nroCliente": 24867,
+      "nombre": "Abhat, Carlos",
+      "cuit": "34563408",
+      "domicilio": "Pje. Paraguay 6757",
+      "correo": "-",
+      "ciudad": "Santa Fe",
+      "idCiudad": 0,
+      "telefono": "342-5461046"
+    },
+    {
+      "id": 2,
+      "nroCliente": 24867,
+      "nombre": "Abhat, Carlos",
+      "cuit": "27-13925180-1",
+      "domicilio": "Pje. Paraguay 6757",
+      "correo": "-",
+      "ciudad": "Santa Fe",
+      "idCiudad": 0,
+      "telefono": "342-5461046"
+    },
+    {
+      "id": 3,
+      "nroCliente": 24867,
+      "nombre": "Acuña, Silvina",
+      "cuit": "34563408",
+      "domicilio": "25 de mayo 3418",
+      "correo": "-",
+      "ciudad": "Santa Fe",
+      "idCiudad": 0,
+      "telefono": "342-535474"
+    },
+    {
+      "id": 4,
+      "nroCliente": 24867,
+      "nombre": "Aguirre  Ramiro",
+      "cuit": "20-18627672-9",
+      "domicilio": "Marcial candioti 3377",
+      "correo": "-",
+      "ciudad": "Santa Fe",
+      "idCiudad": 0,
+      "telefono": "342-578323"
+    },
+    {
+      "id": 5,
+      "nroCliente": 24867,
+      "nombre": "Abhat, Carlos",
+      "cuit": "34563408",
+      "domicilio": "Pje. Paraguay 6757",
+      "correo": "mairt@mail.com",
+      "ciudad": "Santa Fe",
+      "idCiudad": 0,
+      "telefono": "342-5461046"
+    },
+    {
+      "id": 6,
+      "nroCliente": 24867,
+      "nombre": "perez roque",
+      "cuit": "34563408",
+      "domicilio": "Pje. Paraguay 6757",
+      "correo": "fff@mail.com",
+      "ciudad": "Santa Fe",
+      "idCiudad": 0,
+      "telefono": "342-5461046"
+    },
+    {
+      "id": 7,
+      "nroCliente": 24867,
+      "nombre": "Marzo jose luis",
+      "cuit": "34563408",
+      "domicilio": "Pje. Paraguay 6757",
+      "correo": "elloco@mail.com",
+      "ciudad": "Santa Fe",
+      "idCiudad": 0,
+      "telefono": "342-5461046"
+    },
+    {
+      "id": 8,
+      "nroCliente": 24867,
+      "nombre": "Mandrake",
+      "cuit": "34563408",
+      "domicilio": "Pje. Paraguay 6757",
+      "correo": "pepe@mail.com",
+      "ciudad": "Santa Fe",
+      "idCiudad": 0,
+      "telefono": "342-5461046"
+    }
+  ]
+}
