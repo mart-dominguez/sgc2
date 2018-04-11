@@ -1,5 +1,5 @@
 import React, { Component}  from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 function BarraLateral(props) {
     return (
@@ -10,7 +10,7 @@ function BarraLateral(props) {
 
                 <div className="aside-toolbar">
                     <div className="logo">
-                        <div class="product-image mr-1">
+                        <div className="product-image mr-1">
                             <img src="/images/go.png" height="60" width="120"/>
                         </div>
                     </div>
@@ -35,10 +35,10 @@ function BarraLateral(props) {
 
                             <span>Clientes</span>
                         </a>
-                        <ul id="collapse-dashboards" class='collapse show' role="tabpanel" aria-labelledby="heading-dashboards" data-children=".nav-item">
+                        <ul id="collapse-dashboards" className="collapse show" role="tabpanel" aria-labelledby="heading-dashboards" data-children=".nav-item">
 
                             <li className="nav-item">
-                                <Link className="nav-link ripple " to='/'>Datos</Link>
+                                <Link className="nav-link ripple " to='/cliente'>Datos</Link>
                             </li>
 
                             <li className="nav-item">
@@ -68,7 +68,7 @@ function BarraLateral(props) {
 
                             <span>Ecommerce</span>
                         </a>
-                        <ul id="collapse-ecommerce" class='collapse ' role="tabpanel" aria-labelledby="heading-ecommerce" data-children=".nav-item">
+                        <ul id="collapse-ecommerce" className="collapse" role="tabpanel" aria-labelledby="heading-ecommerce" data-children=".nav-item">
 
                             <li className="nav-item">
                                 <a className="nav-link ripple " href="apps-e-commerce-products.html" data-url="index.html">
@@ -151,7 +151,7 @@ function BarraLateral(props) {
 
                             <span>Authentication</span>
                         </a>
-                        <ul id="collapse-authentication" class='collapse ' role="tabpanel" aria-labelledby="heading-authentication" data-children=".nav-item">
+                        <ul id="collapse-authentication" className="collapse " role="tabpanel" aria-labelledby="heading-authentication" data-children=".nav-item">
 
                             <li className="nav-item">
                                 <a className="nav-link ripple " href="pages-auth-login.html" data-url="index.html">
@@ -222,7 +222,7 @@ function BarraLateral(props) {
 
                             <span>Errors</span>
                         </a>
-                        <ul id="collapse-errors" class='collapse ' role="tabpanel" aria-labelledby="heading-errors" data-children=".nav-item">
+                        <ul id="collapse-errors" className="collapse "  role="tabpanel" aria-labelledby="heading-errors" data-children=".nav-item">
 
                             <li className="nav-item">
                                 <a className="nav-link ripple " href="pages-errors-404.html" data-url="index.html">
@@ -280,7 +280,7 @@ function BarraLateral(props) {
 
                             <span>Elements</span>
                         </a>
-                        <ul id="collapse-elements" class='collapse ' role="tabpanel" aria-labelledby="heading-elements" data-children=".nav-item">
+                        <ul id="collapse-elements" className="collapse " role="tabpanel" aria-labelledby="heading-elements" data-children=".nav-item">
 
                             <li className="nav-item">
                                 <a className="nav-link ripple " href="user-interface-elements-alerts.html" data-url="index.html">
@@ -398,7 +398,7 @@ function BarraLateral(props) {
 
                             <span>Tables</span>
                         </a>
-                        <ul id="collapse-tables" class='collapse ' role="tabpanel" aria-labelledby="heading-tables" data-children=".nav-item">
+                        <ul id="collapse-tables" className="collapse " role="tabpanel" aria-labelledby="heading-tables" data-children=".nav-item">
 
                             <li className="nav-item">
                                 <a className="nav-link ripple " href="user-interface-tables-simple-table.html" data-url="index.html">
@@ -425,7 +425,7 @@ function BarraLateral(props) {
 
                             <span>Page Layouts</span>
                         </a>
-                        <ul id="collapse-page-layouts" class='collapse ' role="tabpanel" aria-labelledby="heading-page-layouts" data-children=".nav-item">
+                        <ul id="collapse-page-layouts" className="collapse " role="tabpanel" aria-labelledby="heading-page-layouts" data-children=".nav-item">
 
                             <li className="nav-item" role="tab" id="heading-carded">
 
@@ -433,7 +433,7 @@ function BarraLateral(props) {
 
                                     <span>Carded</span>
                                 </a>
-                                <ul id="collapse-carded" class='collapse ' role="tabpanel" aria-labelledby="heading-carded" data-children=".nav-item">
+                                <ul id="collapse-carded" className="collapse " role="tabpanel" aria-labelledby="heading-carded" data-children=".nav-item">
 
                                     <li className="nav-item">
                                         <a className="nav-link ripple " href="user-interface-page-layouts-carded-full-width.html" data-url="index.html">
@@ -486,7 +486,7 @@ function BarraLateral(props) {
 
                                     <span>Simple</span>
                                 </a>
-                                <ul id="collapse-simple" class='collapse ' role="tabpanel" aria-labelledby="heading-simple" data-children=".nav-item">
+                                <ul id="collapse-simple" className="collapse " role="tabpanel" aria-labelledby="heading-simple" data-children=".nav-item">
 
                                     <li className="nav-item">
                                         <a className="nav-link ripple " href="user-interface-page-layouts-simple-full-width.html" data-url="index.html">
@@ -619,7 +619,7 @@ function BarraLateral(props) {
 
                             <span>Charts</span>
                         </a>
-                        <ul id="collapse-charts" class='collapse ' role="tabpanel" aria-labelledby="heading-charts" data-children=".nav-item">
+                        <ul id="collapse-charts" className="collapse " role="tabpanel" aria-labelledby="heading-charts" data-children=".nav-item">
 
                             <li className="nav-item">
                                 <a className="nav-link ripple " href="components-charts-nvd3.html" data-url="index.html">
