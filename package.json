@@ -6,12 +6,14 @@
     "react": "^16.3.0",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.3.0",
+    "react-modal": "^3.3.2",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "react-scroll": "^1.7.8",
     "react-scrollbar": "^0.5.4",
-    "react-scrollbars": "0.0.5"
+    "react-scrollbars": "0.0.5",
+    "react-select": "^1.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

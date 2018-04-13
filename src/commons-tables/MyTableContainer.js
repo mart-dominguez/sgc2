@@ -19,7 +19,7 @@ function  MyTableContainer(props) {
                                 <div className="toggle-source-preview" >
                                     <input type="text"  placeholder="buscar ....." />
                                     <button type="submit" className="btn btn-secondary fuse-ripple-ready" id="btnBuscar" name="btnBuscar" >Buscar</button>
-                                    <Link to={entidad+"0"}className="btn btn-light fuse-ripple-ready" id="btnNuevo" name="btnNuevo" role="button" >Nuevo</Link>
+                                    <Link to={entidad+"/0"}className="btn btn-light fuse-ripple-ready" id="btnNuevo" name="btnNuevo" role="button" >Nuevo</Link>
                                 </div>
                             </div>
                             <div className="source-preview-wrapper">

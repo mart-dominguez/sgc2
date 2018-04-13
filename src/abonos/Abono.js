@@ -6,11 +6,24 @@ import Tab from '../commons-forms/Tab';
 import MyForm from '../commons-forms/MyForm';
 import MyFormInput from '../commons-forms/MyFormInput';
 import MyFilaForm from '../commons-forms/MyFilaForm';
+import Modal from 'react-modal';
+import ClienteBusqueda from '../cliente/ClienteBusqueda';
+const customStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)'
+    }
+  };
 
 class Abono extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            modalIsOpen: false,
            abono : {
             "id": 0,
             "idCliente":0,
@@ -20,27 +33,42 @@ class Abono extends React.Component {
             "observaciones":""
           }
         };
-
+        this.openModal = this.openModal.bind(this);
+        this.afterOpenModal = this.afterOpenModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleNuevo = this.handleNuevo.bind(this);
     }
 
+    openModal() {
+        this.setState({modalIsOpen: true});
+      }
+     
+      afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        //this.subtitle.style.color = '#f00';
+      }
+     
+      closeModal() {
+        this.setState({modalIsOpen: false});
+      }
+
     componentWillMount() {        
-        fetch('http://localhost:5000/productos/'+this.props.match.params.id)
+        fetch('http://localhost:5000/abonos/'+this.props.match.params.id)
           .then((response) => {
             return response.json()
           })
           .then((data) => {
-            this.setState({ producto: data })
+            this.setState({ abonos: data })
           })
       }
 
       handleNuevo(event){ 
         event.preventDefault();
         console.log(event);
-        let empNuevo= this.state.empleado;
+        let empNuevo= this.state.abono;
         empNuevo.id=null;
-        fetch('http://localhost:5000/clientes', {
+        fetch('http://localhost:5000/abonos', {
          method: 'post',
          headers: {'Content-Type':'application/json'},
          body:JSON.stringify(empNuevo)
@@ -59,7 +87,7 @@ class Abono extends React.Component {
         return (
             <div className="content custom-scrollbar">
                 <div id="e-commerce-product" className="page-layout simple tabbed">
-                    <TituloFrm titulo="Producto" />
+                    <TituloFrm titulo="Abonos vendidos" />
                     <ContenedorForm>
                         <BarraTabs>
                             <Tab titulo="Tab 1"/>
@@ -68,21 +96,32 @@ class Abono extends React.Component {
                         </BarraTabs>
                         <MyForm>
                             <MyFilaForm>                                
-                                <MyFormInput    ancho="4" tipo="text" valor={this.state.producto.id} 
+                                <MyFormInput    ancho="4" tipo="text" valor={this.state.abono.id} 
                                                 etiqueta="ID:" 
                                                 nombre="id"
                                                 actualizar={this.handleInputChange} />
-                                <MyFormInput    ancho="4" tipo="text" valor={this.state.producto.descripcion} 
-                                                etiqueta="Descripcion del abono:" 
-                                                nombre="descripcion"
+                                <MyFormInput    ancho="4" tipo="text" valor={this.state.abono.idCliente} 
+                                                etiqueta="Cliente:" 
+                                                nombre="idCliente"
                                                 actualizar={this.handleInputChange} />
-                                <MyFormInput    ancho="4" tipo="text" valor={this.state.producto.precio} 
-                                                etiqueta="Precio:" 
-                                                nombre="precio"
+                                <MyFormInput    ancho="4" tipo="text" valor={this.state.abono.idProducto} 
+                                                etiqueta="Producto:" 
+                                                nombre="idProducto"
                                                 actualizar={this.handleInputChange} />
                             </MyFilaForm>
                             <button type="submit" className="btn btn-primary" id="btnGuardar" name="btnGuardar" >Guardar</button>
                             <button type="submit" className="btn btn-light" id="btnGuardar" name="btnGuardar" >Guardar</button>
+                            <button type="button" onClick={this.openModal}>Open Modal</button>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        > 
+        <ClienteBusqueda/>
+        <button onClick={this.closeModal}>close</button>
+      </Modal>
                         </MyForm>
                     </ContenedorForm>
                 </div>

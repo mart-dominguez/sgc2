@@ -7,6 +7,8 @@ import Dashboard from './Dashboard';
 import Cliente from './cliente/Cliente';
 import Producto from './productos/Producto';
 import ProductoLista from './productos/ProductoLista';
+import Abono from './abonos/Abono';
+import AbonoLista from './abonos/AbonoLista';
 import ClienteLista from './cliente/ClienteLista';
 import { Switch, Route } from 'react-router-dom'
 
@@ -24,6 +26,8 @@ class App extends Component {
               <Route  path='/producto/:id' component={Producto}/>
               <Route  path='/cliente/lista' component={ClienteLista}/>      
               <Route  path='/cliente/:id' component={Cliente}/>
+              <Route  path='/abono/lista' component={AbonoLista}/>      
+              <Route  path='/abono/:id' component={Abono}/>
             </Switch>
             </div>
         </div>

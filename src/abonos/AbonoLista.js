@@ -9,7 +9,7 @@ class AbonoLista extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            productos: []
+            abonos: []
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -22,19 +22,19 @@ class AbonoLista extends React.Component {
                 return response.json()
             })
             .then((data) => {
-                this.setState({ productos: data })
+                this.setState({ abonos: data })
             })
     }
 
     handleNuevo(event) {
         event.preventDefault();
         console.log(event);
-        let empNuevo = this.state.producto;
-        empNuevo.id = null;
-        fetch('http://localhost:5000/productos', {
+        let entNueva = this.state.producto;
+        entNueva.id = null;
+        fetch('http://localhost:5000/abonos', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(empNuevo)
+            body: JSON.stringify(entNueva)
         });
     };
 
@@ -45,12 +45,13 @@ class AbonoLista extends React.Component {
     }
     render() {
         let indice = 1;
-
-        const listaProductos = this.state.productos.map((prd) =>
-            <tr key={prd.id}>
-                <th scope="row"><Link to={"/producto/"+prd.id}>{indice++}</Link></th>
-                <td>{prd.descripcion}</td>
-                <td>{prd.precio}</td>
+        const lista = this.state.abonos.map((elem) =>
+            <tr key={elem.id}>
+                <th scope="row"><Link to={"/abono/"+elem.id}>{indice++}</Link></th>
+                <td>{elem.idCliente}</td>
+                <td>{elem.idProducto}</td>
+                <td>{elem.fechaAlta}</td>
+                <td>{elem.fechaFin}</td>
             </tr>);
         //style={{  height: '100%' }}
         return (
@@ -58,17 +59,19 @@ class AbonoLista extends React.Component {
                 <div className="doc simple-table-doc page-layout simple full-width">
                     <Encabezado titulo="Abonos" />
                     <Scrollbars autoHeight={true} autoHeightMin={500} autoHeightMax={600} >
-                    <MyTableContainer entidad="producto">
+                    <MyTableContainer entidad="abono"  titulo="Abonos" subtitulo="Detalle de abonos adquiridos por cada cliente">
                         <table className="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
+                                    <th>Cliente</th>
+                                    <th>Producto</th>
+                                    <th>Fecha Alta</th>
+                                    <th>Fecha Baja</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {listaProductos}
+                                {lista}
                             </tbody>
                         </table>
                     </MyTableContainer>

@@ -29,13 +29,10 @@ function BarraLateral(props) {
 
                     <li className="nav-item" role="tab" id="heading-dashboards">
 
-                        <a className="nav-link ripple with-arrow collapsed" data-toggle="collapse" data-target="#collapse-dashboards" href="#" aria-expanded="false" aria-controls="collapse-dashboards">
-
-                            <i className="icon s-4 icon-tile-four"></i>
-
-                            <span>Gestion</span>
-                        </a>
                         <ul id="collapse-dashboards" className="collapse show" role="tabpanel" aria-labelledby="heading-dashboards" data-children=".nav-item">
+                            <li className="nav-item">
+                                <Link className="nav-link ripple " to='/'>Inicio</Link>
+                            </li>
 
                             <li className="nav-item">
                                 <Link className="nav-link ripple " to='/producto/lista'>Productos</Link>
@@ -45,7 +42,7 @@ function BarraLateral(props) {
                                 <Link className="nav-link ripple " to='/cliente/lista'>Clientes</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link ripple " to='/'>Abonos</Link>
+                                <Link className="nav-link ripple " to='/abono/lista'>Abonos</Link>
                             </li>
 
                         </ul>
