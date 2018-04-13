@@ -7,14 +7,17 @@ import MyForm from '../commons-forms/MyForm';
 import MyFormInput from '../commons-forms/MyFormInput';
 import MyFilaForm from '../commons-forms/MyFilaForm';
 
-class Producto extends React.Component {
+class Abono extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-           producto : {
+           abono : {
             "id": 0,
-            "descripcion":"",
-            "precio":0.0
+            "idCliente":0,
+            "idProducto":0,
+            "fechaAlta":"",
+            "fechaFin":"",
+            "observaciones":""
           }
         };
 
@@ -89,4 +92,4 @@ class Producto extends React.Component {
 
 }
 
-export default Producto;
+export default Abono;

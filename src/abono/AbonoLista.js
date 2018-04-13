@@ -4,7 +4,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import { Link } from 'react-router-dom';
 import MyTableContainer from '../commons-tables/MyTableContainer';
 
-class ProductoLista extends React.Component {
+class AbonoLista extends React.Component {
 
     constructor(props) {
         super(props);
@@ -58,7 +58,7 @@ class ProductoLista extends React.Component {
                 <div className="doc simple-table-doc page-layout simple full-width">
                     <Encabezado titulo="Abonos" />
                     <Scrollbars autoHeight={true} autoHeightMin={500} autoHeightMax={600} >
-                    <MyTableContainer entidad="producto"  titulo="Productos" subtitulo="Detalle de productos y servicios en venta">
+                    <MyTableContainer entidad="producto">
                         <table className="table">
                             <thead>
                                 <tr>
@@ -79,4 +79,4 @@ class ProductoLista extends React.Component {
     }
 }
 
-export default ProductoLista;
+export default AbonoLista;

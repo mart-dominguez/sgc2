@@ -5,6 +5,8 @@ import BarraLateral from './common/BarraLateral';
 import './App.css';
 import Dashboard from './Dashboard';
 import Cliente from './cliente/Cliente';
+import Producto from './productos/Producto';
+import ProductoLista from './productos/ProductoLista';
 import ClienteLista from './cliente/ClienteLista';
 import { Switch, Route } from 'react-router-dom'
 
@@ -18,8 +20,10 @@ class App extends Component {
             <div className="content-wrapper">    
             <Switch>
               <Route  exact path='/' component={Dashboard}/>
+              <Route  path='/producto/lista' component={ProductoLista}/>
+              <Route  path='/producto/:id' component={Producto}/>
+              <Route  path='/cliente/lista' component={ClienteLista}/>      
               <Route  path='/cliente/:id' component={Cliente}/>
-              <Route  path='/lista' component={ClienteLista}/>      
             </Switch>
             </div>
         </div>

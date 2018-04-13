@@ -88,5 +88,35 @@
       "idCiudad": 0,
       "telefono": "342-5461046"
     }
+  ],
+  "productos":[
+     {
+      "id": 1,
+      "descripcion":"Disp. F/C comun + 3 bidones ",
+      "precio":150.0
+    },
+    {
+      "id": 2,
+      "descripcion":"Bidones 2x12lts",
+      "precio":110.0
+    }
+  ],
+  "abonos":[
+    {
+      "id": 1,
+      "idCliente":1,
+      "idProducto":1,
+      "fechaAlta":"",
+      "fechaFin":null,
+      "observaciones":"s/d"
+    },
+    {
+      "id": 2,
+      "idCliente":4,
+      "idProducto":2,
+      "fechaAlta":"",
+      "fechaFin":null,
+      "observaciones":"s/d"
+    }
   ]
 }
