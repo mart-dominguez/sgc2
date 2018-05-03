@@ -38,6 +38,7 @@ class Abono extends React.Component {
         this.closeModal = this.closeModal.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleNuevo = this.handleNuevo.bind(this);
+        this.seleccionarCliente = this.seleccionarCliente.bind(this);        
     }
 
     openModal() {
@@ -61,6 +62,15 @@ class Abono extends React.Component {
           .then((data) => {
             this.setState({ abonos: data })
           })
+          .then((data) =>{
+            return fetch('http://localhost:5000/clientes');
+          })
+          .then((response) => {
+            return response.json()
+          })
+          .then((listaCli) => {
+                this.setState({ clientes: listaCli })
+          })
       }
 
       handleNuevo(event){ 
@@ -83,6 +93,11 @@ class Abono extends React.Component {
             }
         }))
     }
+
+    seleccionarCliente(cliSelected){
+        console.log(cliSelected);
+    }
+
     render() {
         return (
             <div className="content custom-scrollbar">
@@ -119,7 +134,7 @@ class Abono extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         > 
-        <ClienteBusqueda/>
+        <ClienteBusqueda seleccionarCliente={this.seleccionarCliente} clientes={}/>
         <button onClick={this.closeModal}>close</button>
       </Modal>
                         </MyForm>

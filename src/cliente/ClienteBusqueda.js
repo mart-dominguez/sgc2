@@ -6,11 +6,31 @@ class ClienteBusqueda extends React.Component {
 //        this.state = {        };
 //        this.handleInputChange = this.handleInputChange.bind(this);
 //        this.handleNuevo = this.handleNuevo.bind(this);
+        this.elegirCliente = this.elegirCliente.bind(this);
     }
 
-
+    elegirCliente(unCli) {
+        console.log(unCli);
+        this.props.seleccionarCliente(unCli);
+    }
+     
 
     render() {
+        // mostrar 10 clientes y busqueda
+        // la busqueda se hace entre toda la lista...
+        let resultado= this.props.listaClientes.slice(0, 5).map(
+            unCliente => {
+                <div className="row">
+                    <div className="col-md-4">{unCliente.cuit}</div>
+                    <div className="col-md-4">{unCliente.nombre}</div>
+                    <div className="col-md-4">
+                    <button type="button" onClick={()=>this.elegirCliente(unCliente)}>Elegir</button>
+                    </div>
+                </div>
+
+                return 
+            }
+        );
         return (
                     <div className="modal-content">
                         <div className="modal-body">
