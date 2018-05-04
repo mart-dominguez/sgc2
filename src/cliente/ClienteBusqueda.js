@@ -7,6 +7,7 @@ class ClienteBusqueda extends React.Component {
 //        this.handleInputChange = this.handleInputChange.bind(this);
 //        this.handleNuevo = this.handleNuevo.bind(this);
         this.elegirCliente = this.elegirCliente.bind(this);
+        this.cerrarModal = this.cerrarModal.bind(this);        
     }
 
     elegirCliente(unCli) {
@@ -14,55 +15,37 @@ class ClienteBusqueda extends React.Component {
         this.props.seleccionarCliente(unCli);
     }
      
+    cerrarModal() {
+        console.log("Cerrrar ");
+        this.props.btnCerrar();
+    }
 
     render() {
         // mostrar 10 clientes y busqueda
         // la busqueda se hace entre toda la lista...
         let resultado= this.props.listaClientes.slice(0, 5).map(
-            unCliente => {
-                <div className="row">
+            unCliente => 
+                <div className="row" key={unCliente.id}>
                     <div className="col-md-4">{unCliente.cuit}</div>
                     <div className="col-md-4">{unCliente.nombre}</div>
-                    <div className="col-md-4">
-                    <button type="button" onClick={()=>this.elegirCliente(unCliente)}>Elegir</button>
-                    </div>
-                </div>
-
-                return 
-            }
+                    <div className="col-md-4"><button onClick={()=>this.elegirCliente(unCliente)}>Elegir</button></div>
+                </div>            
         );
+        console.log(resultado);
+
         return (
                     <div className="modal-content">
                         <div className="modal-body">
                             <div className="container-fluid bd-example-row">
                                 <div className="row">
-                                    <div className="col-md-4">.col-md-4</div>
-                                    <div className="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+                                    <div className="col-md-4">CUIT</div>
+                                    <div className="col-md-4">Nombre</div>
                                 </div>
-                                <div className="row">
-                                    <div className="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
-                                    <div className="col-md-2 col-md-offset-4">.col-md-2 .col-md-offset-4</div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-9">
-                                        Level 1: .col-sm-9
-                                        <div className="row">
-                                            <div className="col-8 col-sm-6">
-                                                Level 2: .col-8 .col-sm-6
-                                            </div>
-                                            <div className="col-4 col-sm-6">
-                                                Level 2: .col-4 .col-sm-6
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {resultado}
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={this.cerrarModal}>Close</button>
                             <button type="button" className="btn btn-primary">Save changes</button>
                         </div>
                     </div>

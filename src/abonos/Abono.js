@@ -10,13 +10,21 @@ import Modal from 'react-modal';
 import ClienteBusqueda from '../cliente/ClienteBusqueda';
 const customStyles = {
     content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)'
-    }
+        position: "absolute",
+        top: "140px",
+        left: "20%",
+        right: "10%",
+        bottom: "auto",
+        backgroundColor: "papayawhip"
+      },
+    overlay : {
+        position: "fixed",
+        top: "0",
+        left: "0",
+        right: "0",
+        bottom: "0",
+        backgroundColor: "rebeccapurple"
+      }
   };
 
 class Abono extends React.Component {
@@ -31,7 +39,8 @@ class Abono extends React.Component {
             "fechaAlta":"",
             "fechaFin":"",
             "observaciones":""
-          }
+          },
+          clientes:[]
         };
         this.openModal = this.openModal.bind(this);
         this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -57,20 +66,31 @@ class Abono extends React.Component {
     componentWillMount() {        
         fetch('http://localhost:5000/abonos/'+this.props.match.params.id)
           .then((response) => {
-            return response.json()
+            if(response.ok) {
+                response.json().then(data => this.setState({ abonos: data }));
+            } else {
+                console.log('No data');
+            }
           })
-          .then((data) => {
-            this.setState({ abonos: data })
-          })
-          .then((data) =>{
+          .then(() =>{
             return fetch('http://localhost:5000/clientes');
           })
           .then((response) => {
-            return response.json()
+            console.log(response);
+            console.log(response.ok);
+            if(response.ok) {
+                response.json().then((data) => {
+                    console.log(data);
+                    this.setState({ clientes: data })
+                }
+                );
+            } else {
+                console.log('No data listaCli');
+              }
           })
-          .then((listaCli) => {
-                this.setState({ clientes: listaCli })
-          })
+          .catch(
+              (error) => console.log('Error fetch: ' + error.message)
+            );
       }
 
       handleNuevo(event){ 
@@ -134,8 +154,7 @@ class Abono extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         > 
-        <ClienteBusqueda seleccionarCliente={this.seleccionarCliente} clientes={}/>
-        <button onClick={this.closeModal}>close</button>
+        <ClienteBusqueda seleccionarCliente={this.seleccionarCliente} listaClientes={this.state.clientes} btnCerrar={this.closeModal}/>
       </Modal>
                         </MyForm>
                     </ContenedorForm>
