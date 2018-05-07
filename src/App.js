@@ -13,6 +13,19 @@ import ClienteLista from './cliente/ClienteLista';
 import { Switch, Route } from 'react-router-dom'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+       clienteSeleccionado : null
+    };
+    this.seleccionarCliente = this.seleccionarCliente.bind(this);
+}
+
+seleccionarCliente(unCli){
+  console.log(unCli);
+  this.setState({clienteSeleccionado:unCli});
+}
+
   render() {
     return (
       <div className="App">
@@ -24,9 +37,13 @@ class App extends Component {
               <Route  exact path='/' component={Dashboard}/>
               <Route  path='/producto/lista' component={ProductoLista}/>
               <Route  path='/producto/:id' component={Producto}/>
-              <Route  path='/cliente/lista' component={ClienteLista}/>      
-              <Route  path='/cliente/:id' component={Cliente}/>
-              <Route  path='/abono/lista' component={AbonoLista}/>      
+              <Route  path='/cliente/lista'
+                      render={(props) => <ClienteLista {...props} seleccionarCliente={this.seleccionarCliente} />}
+              />   
+              <Route  path='/cliente/datos'
+                      render={(props) => <Cliente {...props} clienteSeleccionado={this.state.clienteSeleccionado} />}
+              />   
+              <Route  path='/cliente/abonos' component={AbonoLista}/>      
               <Route  path='/abono/:id' component={Abono}/>
             </Switch>
             </div>

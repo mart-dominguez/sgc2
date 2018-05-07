@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Encabezado from '../common/Encabezado';
+import MenuDesplegable from '../commons-forms/MenuDesplegable';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { Link } from 'react-router-dom';
 
@@ -8,11 +9,14 @@ class ClienteLista extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            empleados: []
+            empleados: [],
+            expandido:false
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleNuevo = this.handleNuevo.bind(this);
+        this.handleSelectRow = this.handleSelectRow.bind(this);
+        
     }
 
     componentWillMount() {
@@ -42,15 +46,30 @@ class ClienteLista extends React.Component {
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
     }
+
+    handleSelectRow(unCliente){
+        console.log(unCliente);
+        this.props.seleccionarCliente(unCliente);
+    }
+
     render() {
         let indice = 1
-        const listaEmpleados = this.state.empleados.map((emp) =>
-            <tr key={emp.id}>
-                <th scope="row"><Link to={"/cliente/"+emp.id}>{indice++}</Link></th>
-                <td>{emp.nombre}</td>
-                <td>{emp.domicilio}</td>
-                <td>{emp.telefono}</td>
-            </tr>);
+        const listaEmpleados = this.state.empleados.map(emp => (
+          <tr key={emp.id}>
+            <th scope="row">
+              <Link to={"/cliente/datos"} onClick={() => this.handleSelectRow(emp) }>{emp.id}</Link>
+            </th>
+            <td>{emp.nombre}</td>
+            <td>{emp.domicilio}</td>
+            <td>{emp.telefono}</td>
+            <td><MenuDesplegable  expandido={this.state.expandido}>
+                <Link to={"/cliente/" + emp.id} className="dropdown-item btn btn-light btn-sm">Datos</Link>
+                <Link to={"/cliente/" + emp.id} className="dropdown-item btn btn-light btn-sm">Abonos</Link>
+                <Link to={"/cliente/" + emp.id} className="dropdown-item btn btn-light btn-sm">Pagos</Link>
+            </MenuDesplegable>
+            </td>
+          </tr>
+        ));
         //style={{  height: '100%' }}
         return (
             <div className="content custom-scrollbar">
@@ -83,6 +102,7 @@ class ClienteLista extends React.Component {
                                                                     <th>#</th>
                                                                     <th>First Name</th>
                                                                     <th>Last Name</th>
+                                                                    <th>Username</th>
                                                                     <th>Username</th>
                                                                 </tr>
                                                             </thead>

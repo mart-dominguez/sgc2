@@ -8,7 +8,7 @@ function TituloFrm(props) {
             <div className="product-image mr-4">
                 <img src="/images/ecommerce/product-image-placeholder.png" />
             </div>
-            <div>{props.titulo}</div>
+            <div><h2>{props.titulo}</h2></div>
         </div>
     </div>
 
