@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import TituloFrm from '../commons-forms/TituloFrm';
-import ContenedorForm from '../commons-forms/ContenedorForm';
+import ContenedorPage from '../commons-forms/ContenedorPage';
 import BarraTabs from '../commons-forms/BarraTabs';
 import Tab from '../commons-forms/Tab';
+import TabContent from '../commons-forms/TabContent';
 import MyForm from '../commons-forms/MyForm';
 import MyFormInput from '../commons-forms/MyFormInput';
 import MyFilaForm from '../commons-forms/MyFilaForm';
@@ -57,12 +58,13 @@ class Producto extends React.Component {
             <div className="content custom-scrollbar">
                 <div id="e-commerce-product" className="page-layout simple tabbed">
                     <TituloFrm titulo="Producto" />
-                    <ContenedorForm>
+                    <ContenedorPage>
                         <BarraTabs>
                             <Tab titulo="Tab 1"/>
                             <Tab titulo="Tab 2"/>
                             <Tab titulo="Tab 3"/>
                         </BarraTabs>
+                        <TabContent>
                         <MyForm>
                             <MyFilaForm>                                
                                 <MyFormInput    ancho="4" tipo="text" valor={this.state.producto.id} 
@@ -81,7 +83,8 @@ class Producto extends React.Component {
                             <button type="submit" className="btn btn-primary" id="btnGuardar" name="btnGuardar" >Guardar</button>
                             <button type="submit" className="btn btn-light" id="btnGuardar" name="btnGuardar" >Guardar</button>
                         </MyForm>
-                    </ContenedorForm>
+                        </TabContent>
+                    </ContenedorPage>
                 </div>
             </div>
         );

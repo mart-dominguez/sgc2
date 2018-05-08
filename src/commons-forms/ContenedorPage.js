@@ -1,6 +1,6 @@
 import React, { Component}  from 'react';
 
-function  ContenedorForm(props) {
+function  ContenedorPage(props) {
     return (
         <div className="page-content">
         {props.children}
@@ -8,4 +8,4 @@ function  ContenedorForm(props) {
     );
 }
 
-export default ContenedorForm;
+export default ContenedorPage;

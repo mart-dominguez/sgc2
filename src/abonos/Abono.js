@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import TituloFrm from '../commons-forms/TituloFrm';
-import ContenedorForm from '../commons-forms/ContenedorForm';
+import ContenedorPage from '../commons-forms/ContenedorPage';
 import BarraTabs from '../commons-forms/BarraTabs';
 import Tab from '../commons-forms/Tab';
+import TabContent from '../commons-forms/TabContent';
+
 import MyForm from '../commons-forms/MyForm';
 import MyFormInput from '../commons-forms/MyFormInput';
 import MyFilaForm from '../commons-forms/MyFilaForm';
@@ -123,12 +125,13 @@ class Abono extends React.Component {
             <div className="content custom-scrollbar">
                 <div id="e-commerce-product" className="page-layout simple tabbed">
                     <TituloFrm titulo="Abonos vendidos" />
-                    <ContenedorForm>
+                    <ContenedorPage>
                         <BarraTabs>
                             <Tab titulo="Tab 1"/>
                             <Tab titulo="Tab 2"/>
                             <Tab titulo="Tab 3"/>
                         </BarraTabs>
+                        <TabContent>
                         <MyForm>
                             <MyFilaForm>                                
                                 <MyFormInput    ancho="4" tipo="text" valor={this.state.abono.id} 
@@ -157,7 +160,8 @@ class Abono extends React.Component {
         <ClienteBusqueda seleccionarCliente={this.seleccionarCliente} listaClientes={this.state.clientes} btnCerrar={this.closeModal}/>
       </Modal>
                         </MyForm>
-                    </ContenedorForm>
+                        </TabContent>
+                    </ContenedorPage>
                 </div>
             </div>
         );

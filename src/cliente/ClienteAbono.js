@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import TituloFrm from '../commons-forms/TituloFrm';
-import ContenedorPage from '../commons-forms/ContenedorPage';
+import ContenedorForm from '../commons-forms/ContenedorForm';
 import BarraTabs from '../commons-forms/BarraTabs';
 import Tab from '../commons-forms/Tab';
-import TabContent from '../commons-forms/TabContent';
-
 import MyForm from '../commons-forms/MyForm';
 import MyFormInput from '../commons-forms/MyFormInput';
 import MyFilaForm from '../commons-forms/MyFilaForm';
+import TabContent from '../commons-forms/TabContent';
 
 class Cliente extends React.Component {
     constructor(props) {
@@ -59,8 +58,8 @@ class Cliente extends React.Component {
                 <TituloFrm titulo="Clientes" />
                 <ContenedorPage>
                     <BarraTabs>
-                        <Tab titulo="Informacion" activo={true}/>
-                        <Tab titulo="Abonos" />
+                        <Tab titulo="Informacion"/>
+                        <Tab titulo="Abonos" activo={true}/>
                         <Tab titulo="Pagos"/>
                     </BarraTabs>
                     <TabContent>
@@ -96,7 +95,7 @@ class Cliente extends React.Component {
                             <button type="submit" className="btn btn-primary" id="btnGuardar" name="btnGuardar" >Guardar</button>
                             <button type="submit" className="btn btn-light" id="btnGuardar" name="btnGuardar" >Cancelar</button>
                         </MyForm>
-                        </TabContent>
+                        </TabContent>                        
                 </ContenedorPage>
             </div>
         </div>    

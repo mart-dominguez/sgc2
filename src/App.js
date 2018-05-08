@@ -16,7 +16,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-       clienteSeleccionado : null
+       clienteSeleccionado : {
+        id: -1,
+        nroCliente: 0,
+        nombre: " ",
+        cuit: "",
+        domicilio: "",
+        correo: "-",
+        ciudad: "",
+        idCiudad: 0,
+        telefono: ""
+       }
     };
     this.seleccionarCliente = this.seleccionarCliente.bind(this);
 }

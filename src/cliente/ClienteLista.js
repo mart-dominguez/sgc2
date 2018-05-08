@@ -90,7 +90,7 @@ class ClienteLista extends React.Component {
                                                 <div className="toggle-source-preview" >
                                                     <input type="text"  placeholder="buscar cliente" />
                                                     <button type="submit" className="btn btn-secondary fuse-ripple-ready" id="btnBuscar" name="btnBuscar" >Buscar</button>
-                                                    <Link to={"/cliente/0"}className="btn btn-light fuse-ripple-ready" id="btnBuscar" name="btnNuevo" role="button" >Nuevo</Link>
+                                                    <Link to={"/cliente/datos"}className="btn btn-light fuse-ripple-ready" id="btnBuscar" name="btnNuevo" role="button" >Nuevo</Link>
                                                 </div>
                                             </div>
                                             <div className="source-preview-wrapper">
